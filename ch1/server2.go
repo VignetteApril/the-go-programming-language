@@ -1,3 +1,5 @@
+package main
+
 import (
 	"fmt"
 	"log"
@@ -11,6 +13,7 @@ var count int
 func main() {
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/count", counter)
+	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
 
 
