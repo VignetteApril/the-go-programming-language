@@ -22,4 +22,11 @@ func main() {
 	// Println formats using the default formats for its operands and writes to
 	// standard output. Spaces are always added between operands and a newline is
 	// appended. It returns the number of bytes written and any write error encountered.
+
+	var j, k int
+	fmt.Println(&j == &j, &j == &k, &j == nil)
+	// => true false false
+
+	// The zero value for a pointer of any type is nil
+	// 疑问点：如何声明一个zero value 的 pointer
 }
