@@ -29,4 +29,35 @@ func main() {
 
 	// The zero value for a pointer of any type is nil
 	// 疑问点：如何声明一个zero value 的 pointer
+
+	// 如果使用指针作为参数传进方法里，这样就可以间接的修改指针所指向的变量的值
+
+	v := 1
+	incr(&v) // => 2
+	fmt.Println(incr(&v))
 }
+
+func incr(p *int) int {
+	*p++
+	return *p
+}
+
+
+// var p = f()
+
+// 这里返回的是变量v的地址指针，每当程序调用该方法完毕后返回变量v的地址指针，但是变量v并没有
+// 被销毁，依然被指针p饮用着
+// 疑问点：如果没有指针饮用的变量是否被垃圾回收了呢
+// func f() *int {
+// 	v := 1
+// 	return &v
+// }
+
+// 每次调用返回的地址都是会变的，说明每次调用方法 f 都会创建一个新的变量 v，该变量会拥有
+// 新的地址
+// fmt.Println(f() == f())
+// => always false
+// because
+
+
+
