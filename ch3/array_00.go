@@ -26,9 +26,14 @@ func main() {
 	// var q [3]int = [3]int{ 1, 2, 3 }
 	var r [3]int = [3]int{ 1, 2 }
 	fmt.Println(r[2]) // => 0 当取值超过数组的长度会自动取0值
+
+	// 在申请数组长度的位置使用...，则可以根据数组的字面量长度确定数组的长度
 }
 
 // 补充下关于print的相关知识
 // Printf 全程是 print formatter 可以在在字符串内使用各种占位符，然后再在后面传入相关的值
 // Print 无法format任何东西，单纯的输出字符串
 // Println 全称 print line 和print方法相同，但是会在末尾加上换行符
+fmt.Print(name, " is ", age, " years old.\n")  // Kim is 22 years old.
+fmt.Printf("%v is %v years old.\n", name, age) // Kim is 22 years old.
+fmt.Println(name, "is", age, "years old.")     // Kim is 22 years old.
