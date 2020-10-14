@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt",
+	"fmt"
 	"sort"
 )
 
@@ -51,6 +51,14 @@ func main() {
 	sort.Strings(names)
 
 	for _, name := range names {
-		fmt.Printf("%s\t\d\n", name, ages[name])
+		fmt.Printf("%s\t%d\n", name, ages[name])
 	}
+
+	// names['not_exist'] = 21 // panic: assignment to entry in nil map 不能给当前map中不存在的key赋值，这里跟ruby是不一样的
+
+	// map取值的时候，当key在map中不存在时则会取出该类型的零值，但是当有对应key碰巧该key对应的值就是0值，我们则需要区分key是否是存在的
+	age, ok = ages["bob"]
+	if !ok { /* "bob" 这个key没有在map中存在 */ }
+	// 上面的写法会简写成下面的形式
+	if age, ok := ages["bob"], !ok { /*...*/ }
 }
